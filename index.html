@@ -6,19 +6,27 @@
     <title>Ridgeline Glow</title>
 </head>
 <body>
-    <h1>Welcome to Ridgeline Glow</h1>
-    <!-- Removed admin sections for privacy -->
-    
-    <!-- The following form functionality is maintained -->
-    <form action="https://formspree.io/f/yourFormId" method="POST">
-        <input type="text" name="name" required placeholder="Your Name">
-        <input type="email" name="email" required placeholder="Your Email">
-        <button type="submit">Send</button>
-    </form>
-    
+    <header>
+        <h1>Ridgeline Glow</h1>
+    </header>
+
+    <main>
+        <h2>Forms</h2>
+        <form method="POST" action="https://formspree.io/f/xayzqwlk">
+            <label for="project">Project Submission:</label>
+            <input type="text" name="project" id="project" required>
+            <button type="submit">Submit</button>
+        </form>
+        <form method="POST" action="https://formspree.io/f/xayzqwlk">
+            <label for="contractor">Contractor Application:</label>
+            <input type="text" name="contractor" id="contractor" required>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
     <script>
-    // Keeping all form functionality intact
-    // ... other script code for forms and notifications remained the same
+        // Removed localStorage functionality to avoid saving submissions
+        // The forms below still retain functionalities to send submissions via Formspree
     </script>
 </body>
 </html>
