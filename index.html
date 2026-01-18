@@ -3,52 +3,611 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Ridgeline Glow</title>
+    <title>RidgelineGlow - Saunas & Plunge Pools | Summit County</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a2f1a 0%, #0d1f0d 100%);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a4d2e" width="1200" height="600"/><path fill="%230d3b1f" d="M0 300L50 283.3C100 266.7 200 233.3 300 216.7C400 200 500 200 600 216.7C700 233.3 800 266.7 900 283.3C1000 300 1100 300 1150 300L1200 300L1200 600L1150 600C1100 600 1000 600 900 600C800 600 700 600 600 600C500 600 400 600 300 600C200 600 100 600 50 600L0 600Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            background: linear-gradient(45deg, #7cf07c, #4ade80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(124, 240, 124, 0.3));
+        }
+
+        .hero .tagline {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+
+        .hero .company {
+            font-size: 1.1em;
+            color: #c0c0c0;
+            margin-bottom: 20px;
+        }
+
+        .hero .location {
+            font-size: 1.2em;
+            color: #7cf07c;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(124, 240, 124, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #1a4d2e;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #4ade80;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #1a4d2e;
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #4ade80;
+            box-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #4ade80, #22c55e);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 222, 128, 0.5);
+            background: linear-gradient(45deg, #22c55e, #16a34a);
+        }
+
+        .qr-section {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f0f0f0, #ffffff);
+            border-radius: 15px;
+        }
+
+        #qrcode {
+            display: inline-block;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .admin-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .submission-list {
+            margin-top: 20px;
+        }
+
+        .submission-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #4ade80;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .submission-card h3 {
+            color: #1a4d2e;
+            margin-bottom: 10px;
+        }
+
+        .submission-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #1a4d2e 0%, #0d3b1f 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.2);
+        }
+
+        .contact-info a {
+            color: #7cf07c;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(124, 240, 124, 0.3);
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .success-message {
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <header class="hero">
-        <h1>Welcome to Ridgeline Glow</h1>
-        <p>Your solution for stunning outdoor lighting.</p>
-        <img src="qr-code.png" alt="QR Code">
-    </header>
+    <div class="hero">
+        <h1>RidgelineGlow</h1>
+        <div class="tagline">Saunas and Plunge Pools</div>
+        <div class="company">Ridgeline Enterprises, LLC</div>
+        <div class="location">Elevate Your Wellness in Summit County</div>
+        <p style="margin-top: 20px; font-size: 1.1em;">Professional Planning and Installation • Licensed and Insured • Commercial or Residential</p>
+    </div>
 
-    <!-- Contact Info -->
-    <section class="contact">
-        <h2>Contact Us</h2>
-        <p>Email: contact@ridgelineglow.com</p>
-        <p>Phone: (123) 456-7890</p>
-    </section>
+    <div class="container">
+        <div class="contact-info">
+            <h2 style="color: white; border: none;">Contact Us</h2>
+            <p style="font-size: 1.2em; margin: 10px 0;">Stephen Maher</p>
+            <p style="font-size: 1.1em;"><a href="mailto:ridgelinesummitco@gmail.com">ridgelinesummitco@gmail.com</a></p>
+            <p style="font-size: 1.1em;"><a href="tel:904-896-0163">904-896-0163</a></p>
+        </div>
 
-    <!-- Project Request Form -->
-    <section>
-        <h2>Project Request</h2>
-        <form id="project-request-form">
-            <label for="project-name">Project Name:</label>
-            <input type="text" id="project-name" name="project-name" required>
+        <div class="section">
+            <h2>Start Your Wellness Project</h2>
+            <div id="successMessage" class="success-message">
+                Thank you! Your project details have been submitted successfully. We'll contact you soon.
+            </div>
+            
+            <form id="projectForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" required>
+                </div>
 
-            <label for="project-details">Project Details:</label>
-            <textarea id="project-details" name="project-details" required></textarea>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" required>
+                    </div>
 
-            <input type="submit" value="Submit">
-        </form>
-    </section>
+                    <div class="form-group">
+                        <label for="phone">Phone *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                </div>
 
-    <!-- Contractor Application Form -->
-    <section>
-        <h2>Contractor Application</h2>
-        <form id="contractor-application-form">
-            <label for="contractor-name">Name:</label>
-            <input type="text" id="contractor-name" name="contractor-name" required>
+                <div class="form-group">
+                    <label for="projectType">Project Type *</label>
+                    <select id="projectType" required>
+                        <option value="">Select a service...</option>
+                        <option value="Sauna">Sauna</option>
+                        <option value="Plunge Pool">Plunge Pool</option>
+                        <option value="Both">Both Sauna and Plunge Pool</option>
+                    </select>
+                </div>
 
-            <label for="contractor-email">Email:</label>
-            <input type="email" id="contractor-email" name="contractor-email" required>
+                <div class="form-group">
+                    <label for="propertyType">Property Type *</label>
+                    <select id="propertyType" required>
+                        <option value="">Select property type...</option>
+                        <option value="Residential">Residential</option>
+                        <option value="Commercial">Commercial</option>
+                    </select>
+                </div>
 
-            <input type="submit" value="Apply">
-        </form>
-    </section>
+                <div class="form-group">
+                    <label for="budget">Budget Range *</label>
+                    <select id="budget" required>
+                        <option value="">Select budget range...</option>
+                        <option value="Under $10,000">Under $10,000</option>
+                        <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+                        <option value="$25,000 - $50,000">$25,000 - $50,000</option>
+                        <option value="$50,000 - $100,000">$50,000 - $100,000</option>
+                        <option value="Over $100,000">Over $100,000</option>
+                    </select>
+                </div>
 
-    <script src="script.js"></script>
+                <div class="form-group">
+                    <label for="timeline">Desired Timeline</label>
+                    <select id="timeline">
+                        <option value="">Select timeline...</option>
+                        <option value="ASAP">As Soon As Possible</option>
+                        <option value="1-3 months">1-3 Months</option>
+                        <option value="3-6 months">3-6 Months</option>
+                        <option value="6+ months">6+ Months</option>
+                        <option value="Flexible">Flexible</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="details">Project Details</label>
+                    <textarea id="details" placeholder="Tell us about your vision, space constraints, specific requirements, or any questions you have..."></textarea>
+                </div>
+
+                <button type="submit" class="btn">Submit Project Request</button>
+            </form>
+        </div>
+
+        <div class="qr-section section">
+            <h2>Scan to Access This Form</h2>
+            <p style="margin-bottom: 20px;">Share this QR code for easy mobile access</p>
+            <div id="qrcode"></div>
+        </div>
+
+        <div class="section">
+            <h2>Contractor Network Application</h2>
+            <p style="margin-bottom: 20px;">Interested in joining our network of trusted contractors? Submit your information below:</p>
+            
+            <div id="contractorSuccessMessage" class="success-message">
+                Thank you! Your contractor application has been submitted successfully.
+            </div>
+            
+            <form id="contractorForm">
+                <div class="form-group">
+                    <label for="contractorName">Full Name / Company Name *</label>
+                    <input type="text" id="contractorName" required>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="contractorEmail">Email *</label>
+                        <input type="email" id="contractorEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contractorPhone">Phone *</label>
+                        <input type="tel" id="contractorPhone" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contractorType">Trade / Specialty *</label>
+                    <select id="contractorType" required>
+                        <option value="">Select your specialty...</option>
+                        <option value="Plumbing">Plumbing</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="HVAC">HVAC</option>
+                        <option value="Carpentry">Carpentry</option>
+                        <option value="Masonry">Masonry / Stonework</option>
+                        <option value="Excavation">Excavation / Site Work</option>
+                        <option value="General Contractor">General Contractor</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="yearsExperience">Years of Experience *</label>
+                        <input type="number" id="yearsExperience" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="licenseNumber">License Number (if applicable)</label>
+                        <input type="text" id="licenseNumber">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="serviceArea">Service Area *</label>
+                    <input type="text" id="serviceArea" placeholder="e.g., Summit County, Eagle County, etc." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="availability">Current Availability</label>
+                    <select id="availability">
+                        <option value="">Select availability...</option>
+                        <option value="Immediately Available">Immediately Available</option>
+                        <option value="Available within 2 weeks">Available within 2 Weeks</option>
+                        <option value="Available within 1 month">Available within 1 Month</option>
+                        <option value="Booked - Future Projects">Booked - Future Projects Only</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="contractorDetails">Additional Information</label>
+                    <textarea id="contractorDetails" placeholder="Tell us about your experience, insurance coverage, references, or any other relevant details..."></textarea>
+                </div>
+
+                <button type="submit" class="btn">Submit Contractor Application</button>
+            </form>
+        </div>
+
+        <div class="admin-section section">
+            <h2>Project Submissions</h2>
+            <p style="margin-bottom: 20px;">View all submitted project requests below:</p>
+            <div id="submissionList" class="submission-list"></div>
+        </div>
+
+        <div class="admin-section section">
+            <h2>Contractor Applications</h2>
+            <p style="margin-bottom: 20px;">View all contractor network applications below:</p>
+            <div id="contractorList" class="submission-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Generate QR code
+        new QRCode(document.getElementById("qrcode"), {
+            text: window.location.href,
+            width: 200,
+            height: 200
+        });
+
+        // Form submission handler
+        document.getElementById('projectForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                projectType: document.getElementById('projectType').value,
+                propertyType: document.getElementById('propertyType').value,
+                budget: document.getElementById('budget').value,
+                timeline: document.getElementById('timeline').value,
+                details: document.getElementById('details').value,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                // Save to storage
+                const submissionId = 'submission_' + Date.now();
+                await window.storage.set(submissionId, JSON.stringify(formData));
+
+                // Show success message
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Reset form
+                this.reset();
+
+                // Reload submissions
+                loadSubmissions();
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 5000);
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } catch (error) {
+                alert('There was an error submitting your request. Please try again or contact us directly.');
+                console.error('Submission error:', error);
+            }
+        });
+
+        // Load and display submissions
+        async function loadSubmissions() {
+            try {
+                const result = await window.storage.list('submission_');
+                const submissionList = document.getElementById('submissionList');
+
+                if (!result || !result.keys || result.keys.length === 0) {
+                    submissionList.innerHTML = '<p style="color: #666;">No submissions yet.</p>';
+                    return;
+                }
+
+                const submissions = [];
+                for (const key of result.keys) {
+                    try {
+                        const data = await window.storage.get(key);
+                        if (data && data.value) {
+                            submissions.push({
+                                key: key,
+                                data: JSON.parse(data.value)
+                            });
+                        }
+                    } catch (err) {
+                        console.error('Error loading submission:', err);
+                    }
+                }
+
+                // Sort by timestamp, newest first
+                submissions.sort((a, b) => new Date(b.data.timestamp) - new Date(a.data.timestamp));
+
+                submissionList.innerHTML = submissions.map(sub => `
+                    <div class="submission-card">
+                        <h3>${sub.data.name}</h3>
+                        <p><strong>Contact:</strong> ${sub.data.email} | ${sub.data.phone}</p>
+                        <p><strong>Project:</strong> ${sub.data.projectType} - ${sub.data.propertyType}</p>
+                        <p><strong>Budget:</strong> ${sub.data.budget}</p>
+                        ${sub.data.timeline ? `<p><strong>Timeline:</strong> ${sub.data.timeline}</p>` : ''}
+                        ${sub.data.details ? `<p><strong>Details:</strong> ${sub.data.details}</p>` : ''}
+                        <p style="color: #888; font-size: 0.9em; margin-top: 10px;">
+                            <strong>Submitted:</strong> ${new Date(sub.data.timestamp).toLocaleString()}
+                        </p>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading submissions:', error);
+                document.getElementById('submissionList').innerHTML = '<p style="color: #666;">Error loading submissions.</p>';
+            }
+        }
+
+        // Contractor form submission handler
+        document.getElementById('contractorForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('contractorName').value,
+                email: document.getElementById('contractorEmail').value,
+                phone: document.getElementById('contractorPhone').value,
+                contractorType: document.getElementById('contractorType').value,
+                yearsExperience: document.getElementById('yearsExperience').value,
+                licenseNumber: document.getElementById('licenseNumber').value,
+                serviceArea: document.getElementById('serviceArea').value,
+                availability: document.getElementById('availability').value,
+                details: document.getElementById('contractorDetails').value,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                // Save to storage with contractor prefix
+                const contractorId = 'contractor_' + Date.now();
+                await window.storage.set(contractorId, JSON.stringify(formData));
+
+                // Show success message
+                document.getElementById('contractorSuccessMessage').style.display = 'block';
+                
+                // Reset form
+                this.reset();
+
+                // Reload contractor applications
+                loadContractors();
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('contractorSuccessMessage').style.display = 'none';
+                }, 5000);
+
+                // Scroll to contractor section
+                document.getElementById('contractorForm').scrollIntoView({ behavior: 'smooth' });
+            } catch (error) {
+                alert('There was an error submitting your application. Please try again or contact us directly.');
+                console.error('Submission error:', error);
+            }
+        });
+
+        // Load and display contractor applications
+        async function loadContractors() {
+            try {
+                const result = await window.storage.list('contractor_');
+                const contractorList = document.getElementById('contractorList');
+
+                if (!result || !result.keys || result.keys.length === 0) {
+                    contractorList.innerHTML = '<p style="color: #666;">No contractor applications yet.</p>';
+                    return;
+                }
+
+                const contractors = [];
+                for (const key of result.keys) {
+                    try {
+                        const data = await window.storage.get(key);
+                        if (data && data.value) {
+                            contractors.push({
+                                key: key,
+                                data: JSON.parse(data.value)
+                            });
+                        }
+                    } catch (err) {
+                        console.error('Error loading contractor:', err);
+                    }
+                }
+
+                // Sort by timestamp, newest first
+                contractors.sort((a, b) => new Date(b.data.timestamp) - new Date(a.data.timestamp));
+
+                contractorList.innerHTML = contractors.map(cont => `
+                    <div class="submission-card">
+                        <h3>${cont.data.name}</h3>
+                        <p><strong>Contact:</strong> ${cont.data.email} | ${cont.data.phone}</p>
+                        <p><strong>Specialty:</strong> ${cont.data.contractorType}</p>
+                        <p><strong>Experience:</strong> ${cont.data.yearsExperience} years</p>
+                        ${cont.data.licenseNumber ? `<p><strong>License #:</strong> ${cont.data.licenseNumber}</p>` : ''}
+                        <p><strong>Service Area:</strong> ${cont.data.serviceArea}</p>
+                        ${cont.data.availability ? `<p><strong>Availability:</strong> ${cont.data.availability}</p>` : ''}
+                        ${cont.data.details ? `<p><strong>Additional Info:</strong> ${cont.data.details}</p>` : ''}
+                        <p style="color: #888; font-size: 0.9em; margin-top: 10px;">
+                            <strong>Submitted:</strong> ${new Date(cont.data.timestamp).toLocaleString()}
+                        </p>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading contractors:', error);
+                document.getElementById('contractorList').innerHTML = '<p style="color: #666;">Error loading contractor applications.</p>';
+            }
+        }
+
+        // Load submissions on page load
+        loadSubmissions();
+        loadContractors();
+    </script>
 </body>
 </html>
