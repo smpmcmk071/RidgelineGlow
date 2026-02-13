@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RidgelineGlow - Saunas & Plunge Pools | Summit County</title>
+    <title>RidgelineGlow - Plumbing & Water Services / Saunas & Plunge Pools | Summit County</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         * {
@@ -225,7 +225,7 @@
 <body>
     <div class="hero">
         <h1>RidgelineGlow</h1>
-        <div class="tagline">Plumbing and Water Systems/Sauna and Plunge Pools</div>
+        <div class="tagline">Plumbing & Water Services / Saunas & Plunge Pools</div>
         <div class="company">Ridgeline Enterprises, LLC</div>
         <div class="location">Elevate Your Wellness in Summit County</div>
         <p style="margin-top: 20px; font-size: 1.1em;">Professional Planning and Installation • Licensed and Insured • Commercial or Residential</p>
@@ -234,7 +234,7 @@
     <div class="container">
         <div class="contact-info">
             <h2 style="color: white; border: none;">Contact Us</h2>
-            <p style="font-size: 1.2em; margin: 10px 0;">Stephen Maher and Robert McElreavey - Master Plumber</p>
+            <p style="font-size: 1.2em; margin: 10px 0;">Robert McElreavey - Master Plumber & Stephen Maher</p>
             <p style="font-size: 1.1em;"><a href="mailto:ridgelinesummitco@gmail.com">ridgelinesummitco@gmail.com</a></p>
             <p style="font-size: 1.1em;"><a href="tel:904-896-0163">904-896-0163</a></p>
         </div>
@@ -245,27 +245,27 @@
                 Thank you! Your project details have been submitted successfully. We'll contact you soon.
             </div>
             
-            <form id="projectForm">
+            <form id="projectForm" action="https://formspree.io/f/xjggylnz" method="POST">
                 <div class="form-group">
                     <label for="name">Full Name *</label>
-                    <input type="text" id="name" required>
+                    <input type="text" id="name" name="name" required>
                 </div>
 
                 <div class="grid-2">
                     <div class="form-group">
                         <label for="email">Email *</label>
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required>
                     </div>
 
                     <div class="form-group">
                         <label for="phone">Phone *</label>
-                        <input type="tel" id="phone" required>
+                        <input type="tel" id="phone" name="phone" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="projectType">Project Type *</label>
-                    <select id="projectType" required>
+                    <select id="projectType" name="projectType" required>
                         <option value="">Select a service...</option>
                         <option value="Plumbing Services">Plumbing Services</option>
                         <option value="Water Services">Water Services</option>
@@ -277,7 +277,7 @@
 
                 <div class="form-group">
                     <label for="propertyType">Property Type *</label>
-                    <select id="propertyType" required>
+                    <select id="propertyType" name="propertyType" required>
                         <option value="">Select property type...</option>
                         <option value="Residential">Residential</option>
                         <option value="Commercial">Commercial</option>
@@ -286,7 +286,7 @@
 
                 <div class="form-group">
                     <label for="budget">Budget Range *</label>
-                    <select id="budget" required>
+                    <select id="budget" name="budget" required>
                         <option value="">Select budget range...</option>
                         <option value="Under $10,000">Under $10,000</option>
                         <option value="$10,000 - $25,000">$10,000 - $25,000</option>
@@ -298,7 +298,7 @@
 
                 <div class="form-group">
                     <label for="timeline">Desired Timeline</label>
-                    <select id="timeline">
+                    <select id="timeline" name="timeline">
                         <option value="">Select timeline...</option>
                         <option value="ASAP">As Soon As Possible</option>
                         <option value="1-3 months">1-3 Months</option>
@@ -310,7 +310,7 @@
 
                 <div class="form-group">
                     <label for="details">Project Details</label>
-                    <textarea id="details" placeholder="Tell us about your vision, space constraints, specific requirements, or any questions you have..."></textarea>
+                    <textarea id="details" name="details" placeholder="Tell us about your vision, space constraints, specific requirements, or any questions you have..."></textarea>
                 </div>
 
                 <button type="submit" class="btn">Submit Project Request</button>
@@ -331,27 +331,27 @@
                 Thank you! Your contractor application has been submitted successfully.
             </div>
             
-            <form id="contractorForm">
+            <form id="contractorForm" action="https://formspree.io/f/mdaaebqv" method="POST">
                 <div class="form-group">
                     <label for="contractorName">Full Name / Company Name *</label>
-                    <input type="text" id="contractorName" required>
+                    <input type="text" id="contractorName" name="contractorName" required>
                 </div>
 
                 <div class="grid-2">
                     <div class="form-group">
                         <label for="contractorEmail">Email *</label>
-                        <input type="email" id="contractorEmail" required>
+                        <input type="email" id="contractorEmail" name="contractorEmail" required>
                     </div>
 
                     <div class="form-group">
                         <label for="contractorPhone">Phone *</label>
-                        <input type="tel" id="contractorPhone" required>
+                        <input type="tel" id="contractorPhone" name="contractorPhone" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="contractorType">Trade / Specialty *</label>
-                    <select id="contractorType" required>
+                    <select id="contractorType" name="contractorType" required>
                         <option value="">Select your specialty...</option>
                         <option value="Plumbing">Plumbing</option>
                         <option value="Electrical">Electrical</option>
@@ -367,23 +367,23 @@
                 <div class="grid-2">
                     <div class="form-group">
                         <label for="yearsExperience">Years of Experience *</label>
-                        <input type="number" id="yearsExperience" min="0" required>
+                        <input type="number" id="yearsExperience" name="yearsExperience" min="0" required>
                     </div>
 
                     <div class="form-group">
                         <label for="licenseNumber">License Number (if applicable)</label>
-                        <input type="text" id="licenseNumber">
+                        <input type="text" id="licenseNumber" name="licenseNumber">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="serviceArea">Service Area *</label>
-                    <input type="text" id="serviceArea" placeholder="e.g., Summit County, Eagle County, etc." required>
+                    <input type="text" id="serviceArea" name="serviceArea" placeholder="e.g., Summit County, Eagle County, etc." required>
                 </div>
 
                 <div class="form-group">
                     <label for="availability">Current Availability</label>
-                    <select id="availability">
+                    <select id="availability" name="availability">
                         <option value="">Select availability...</option>
                         <option value="Immediately Available">Immediately Available</option>
                         <option value="Available within 2 weeks">Available within 2 Weeks</option>
@@ -394,23 +394,11 @@
 
                 <div class="form-group">
                     <label for="contractorDetails">Additional Information</label>
-                    <textarea id="contractorDetails" placeholder="Tell us about your experience, insurance coverage, references, or any other relevant details..."></textarea>
+                    <textarea id="contractorDetails" name="contractorDetails" placeholder="Tell us about your experience, insurance coverage, references, or any other relevant details..."></textarea>
                 </div>
 
                 <button type="submit" class="btn">Submit Contractor Application</button>
             </form>
-        </div>
-
-        <div class="admin-section section">
-            <h2>Project Submissions</h2>
-            <p style="margin-bottom: 20px;">View all submitted project requests below:</p>
-            <div id="submissionList" class="submission-list"></div>
-        </div>
-
-        <div class="admin-section section">
-            <h2>Contractor Applications</h2>
-            <p style="margin-bottom: 20px;">View all contractor network applications below:</p>
-            <div id="contractorList" class="submission-list"></div>
         </div>
     </div>
 
@@ -421,195 +409,6 @@
             width: 200,
             height: 200
         });
-
-        // Form submission handler
-        document.getElementById('projectForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                projectType: document.getElementById('projectType').value,
-                propertyType: document.getElementById('propertyType').value,
-                budget: document.getElementById('budget').value,
-                timeline: document.getElementById('timeline').value,
-                details: document.getElementById('details').value,
-                timestamp: new Date().toISOString()
-            };
-
-            try {
-                // Save to storage
-                const submissionId = 'submission_' + Date.now();
-                await window.storage.set(submissionId, JSON.stringify(formData));
-
-                // Show success message
-                document.getElementById('successMessage').style.display = 'block';
-                
-                // Reset form
-                this.reset();
-
-                // Reload submissions
-                loadSubmissions();
-
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    document.getElementById('successMessage').style.display = 'none';
-                }, 5000);
-
-                // Scroll to top
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } catch (error) {
-                alert('There was an error submitting your request. Please try again or contact us directly.');
-                console.error('Submission error:', error);
-            }
-        });
-
-        // Load and display submissions
-        async function loadSubmissions() {
-            try {
-                const result = await window.storage.list('submission_');
-                const submissionList = document.getElementById('submissionList');
-
-                if (!result || !result.keys || result.keys.length === 0) {
-                    submissionList.innerHTML = '<p style="color: #666;">No submissions yet.</p>';
-                    return;
-                }
-
-                const submissions = [];
-                for (const key of result.keys) {
-                    try {
-                        const data = await window.storage.get(key);
-                        if (data && data.value) {
-                            submissions.push({
-                                key: key,
-                                data: JSON.parse(data.value)
-                            });
-                        }
-                    } catch (err) {
-                        console.error('Error loading submission:', err);
-                    }
-                }
-
-                // Sort by timestamp, newest first
-                submissions.sort((a, b) => new Date(b.data.timestamp) - new Date(a.data.timestamp));
-
-                submissionList.innerHTML = submissions.map(sub => `
-                    <div class="submission-card">
-                        <h3>${sub.data.name}</h3>
-                        <p><strong>Contact:</strong> ${sub.data.email} | ${sub.data.phone}</p>
-                        <p><strong>Project:</strong> ${sub.data.projectType} - ${sub.data.propertyType}</p>
-                        <p><strong>Budget:</strong> ${sub.data.budget}</p>
-                        ${sub.data.timeline ? `<p><strong>Timeline:</strong> ${sub.data.timeline}</p>` : ''}
-                        ${sub.data.details ? `<p><strong>Details:</strong> ${sub.data.details}</p>` : ''}
-                        <p style="color: #888; font-size: 0.9em; margin-top: 10px;">
-                            <strong>Submitted:</strong> ${new Date(sub.data.timestamp).toLocaleString()}
-                        </p>
-                    </div>
-                `).join('');
-            } catch (error) {
-                console.error('Error loading submissions:', error);
-                document.getElementById('submissionList').innerHTML = '<p style="color: #666;">Error loading submissions.</p>';
-            }
-        }
-
-        // Contractor form submission handler
-        document.getElementById('contractorForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const formData = {
-                name: document.getElementById('contractorName').value,
-                email: document.getElementById('contractorEmail').value,
-                phone: document.getElementById('contractorPhone').value,
-                contractorType: document.getElementById('contractorType').value,
-                yearsExperience: document.getElementById('yearsExperience').value,
-                licenseNumber: document.getElementById('licenseNumber').value,
-                serviceArea: document.getElementById('serviceArea').value,
-                availability: document.getElementById('availability').value,
-                details: document.getElementById('contractorDetails').value,
-                timestamp: new Date().toISOString()
-            };
-
-            try {
-                // Save to storage with contractor prefix
-                const contractorId = 'contractor_' + Date.now();
-                await window.storage.set(contractorId, JSON.stringify(formData));
-
-                // Show success message
-                document.getElementById('contractorSuccessMessage').style.display = 'block';
-                
-                // Reset form
-                this.reset();
-
-                // Reload contractor applications
-                loadContractors();
-
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    document.getElementById('contractorSuccessMessage').style.display = 'none';
-                }, 5000);
-
-                // Scroll to contractor section
-                document.getElementById('contractorForm').scrollIntoView({ behavior: 'smooth' });
-            } catch (error) {
-                alert('There was an error submitting your application. Please try again or contact us directly.');
-                console.error('Submission error:', error);
-            }
-        });
-
-        // Load and display contractor applications
-        async function loadContractors() {
-            try {
-                const result = await window.storage.list('contractor_');
-                const contractorList = document.getElementById('contractorList');
-
-                if (!result || !result.keys || result.keys.length === 0) {
-                    contractorList.innerHTML = '<p style="color: #666;">No contractor applications yet.</p>';
-                    return;
-                }
-
-                const contractors = [];
-                for (const key of result.keys) {
-                    try {
-                        const data = await window.storage.get(key);
-                        if (data && data.value) {
-                            contractors.push({
-                                key: key,
-                                data: JSON.parse(data.value)
-                            });
-                        }
-                    } catch (err) {
-                        console.error('Error loading contractor:', err);
-                    }
-                }
-
-                // Sort by timestamp, newest first
-                contractors.sort((a, b) => new Date(b.data.timestamp) - new Date(a.data.timestamp));
-
-                contractorList.innerHTML = contractors.map(cont => `
-                    <div class="submission-card">
-                        <h3>${cont.data.name}</h3>
-                        <p><strong>Contact:</strong> ${cont.data.email} | ${cont.data.phone}</p>
-                        <p><strong>Specialty:</strong> ${cont.data.contractorType}</p>
-                        <p><strong>Experience:</strong> ${cont.data.yearsExperience} years</p>
-                        ${cont.data.licenseNumber ? `<p><strong>License #:</strong> ${cont.data.licenseNumber}</p>` : ''}
-                        <p><strong>Service Area:</strong> ${cont.data.serviceArea}</p>
-                        ${cont.data.availability ? `<p><strong>Availability:</strong> ${cont.data.availability}</p>` : ''}
-                        ${cont.data.details ? `<p><strong>Additional Info:</strong> ${cont.data.details}</p>` : ''}
-                        <p style="color: #888; font-size: 0.9em; margin-top: 10px;">
-                            <strong>Submitted:</strong> ${new Date(cont.data.timestamp).toLocaleString()}
-                        </p>
-                    </div>
-                `).join('');
-            } catch (error) {
-                console.error('Error loading contractors:', error);
-                document.getElementById('contractorList').innerHTML = '<p style="color: #666;">Error loading contractor applications.</p>';
-            }
-        }
-
-        // Load submissions on page load
-        loadSubmissions();
-        loadContractors();
     </script>
 </body>
 </html>
