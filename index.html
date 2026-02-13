@@ -3,29 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RidgelineGlow</title>
+    <title>RidgelineGlow - Wellness Suites & Master Plumbing | Summit County</title>
+    <meta name="description" content="Professional wellness suites and master plumbing services in Summit County. Custom saunas, plunge pools, boiler systems, and more by Ridgeline Enterprises, LLC.">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-qrcode/1.0.0/jquery.qrcode.min.js"></script>
     <style>
-        body { background-color: #1a2f1a; color: #ffffff; }
-        .bg-deep { background-color: #0d1f0d; }
-        .accent-glow { color: #7cf07c; text-shadow: 0 0 10px #7cf07c; }
-        .accent-solid { color: #4ade80; }
-        .hero { padding: 60px 20px; text-align: center; }
-        .services { display: flex; justify-content: space-between; padding: 20px; }
-        .card { background-color: #2f3f2f; padding: 20px; border-radius: 8px; }
-        .contact { padding: 20px; }
-        #contact-form { display: flex; flex-direction: column; }
-        .hidden { display: none; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body { 
+            background-color: #1a2f1a;
+            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .bg-deep { 
+            background-color: #0d1f0d; 
+        }
+        
+        .accent-glow { 
+            color: #7cf07c; 
+            text-shadow: 0 0 20px #7cf07c, 0 0 30px #7cf07c;
+        }
+        
+        .accent-solid { 
+            color: #4ade80; 
+        }
+        
+        .text-light {
+            color: #e0e0e0;
+        }
+        
+        .text-white {
+            color: #ffffff;
+        }
+        
+        /* Hero Section */
+        .hero { 
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #0d1f0d 0%, #1a2f1a 100%);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .hero .company-name {
+            font-size: 1rem;
+            color: #4ade80;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        
+        /* Services Section */
+        .services { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 20px;
+        }
+        
+        .card { 
+            background-color: #0d1f0d;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(76, 222, 128, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(124, 240, 124, 0.2);
+        }
+        
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #4ade80;
+            padding-bottom: 10px;
+        }
+        
+        .card ul {
+            list-style: none;
+        }
+        
+        .card ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #e0e0e0;
+        }
+        
+        .card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #7cf07c;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Contact Section */
+        .contact { 
+            padding: 40px 20px;
+            background-color: #0d1f0d;
+        }
+        
+        .contact h3 {
+            font-size: 2rem;
+            color: #4ade80;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-card {
+            background-color: #1a2f1a;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(76, 222, 128, 0.3);
+        }
+        
+        .contact-card h4 {
+            color: #7cf07c;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .contact-card p {
+            margin: 8px 0;
+            color: #e0e0e0;
+        }
+        
+        .contact-card a {
+            color: #4ade80;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-card a:hover {
+            color: #7cf07c;
+            text-shadow: 0 0 8px #7cf07c;
+        }
+        
+        .badge {
+            display: inline-block;
+            background-color: #4ade80;
+            color: #0d1f0d;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* QR Code Section */
+        .qr-section {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #1a2f1a;
+        }
+        
+        .qr-section h4 {
+            color: #4ade80;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        #qrcode {
+            display: inline-block;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Form Section */
+        .form-section {
+            padding: 40px 20px;
+            background-color: #0d1f0d;
+        }
+        
+        .form-section h3 {
+            font-size: 2rem;
+            color: #4ade80;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        #contact-form { 
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        #contact-form label {
+            color: #7cf07c;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        #contact-form select,
+        #contact-form input[type="text"],
+        #contact-form input[type="email"],
+        #contact-form textarea {
+            padding: 12px 15px;
+            border: 2px solid #4ade80;
+            border-radius: 8px;
+            background-color: #1a2f1a;
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        #contact-form select:focus,
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            outline: none;
+            border-color: #7cf07c;
+            box-shadow: 0 0 10px rgba(124, 240, 124, 0.3);
+        }
+        
+        #contact-form input[type="submit"] {
+            padding: 15px 30px;
+            background-color: #4ade80;
+            color: #0d1f0d;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        #contact-form input[type="submit"]:hover {
+            background-color: #7cf07c;
+            transform: translateY(-2px);
+        }
+        
+        .hidden { 
+            display: none; 
+        }
+        
+        #success-message {
+            background-color: #4ade80;
+            color: #0d1f0d;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0d1f0d;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid #4ade80;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+            
+            .services {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+            }
+            
+            .hero,
+            .card,
+            .contact,
+            .form-section {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                border: 1px solid #cccccc;
+            }
+            
+            .accent-glow,
+            .accent-solid,
+            .text-light {
+                color: #000000 !important;
+                text-shadow: none !important;
+            }
+            
+            a {
+                color: #000000 !important;
+                text-decoration: underline;
+            }
+            
+            .card ul li::before {
+                color: #000000 !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Hero Section -->
     <div class="hero">
-        <h1 class="accent-glow">RidgelineGlow</h1>
-        <h2>Wellness Suites & Master Plumbing</h2>
-        <p>Elevate Your Wellness & Water Systems in Summit County</p>
+        <div class="container">
+            <h1 class="accent-glow">RidgelineGlow</h1>
+            <h2 class="text-white">Wellness Suites &amp; Master Plumbing</h2>
+            <p class="tagline">Elevate Your Wellness &amp; Water Systems in Summit County</p>
+            <p class="company-name">Ridgeline Enterprises, LLC</p>
+        </div>
     </div>
-    <div class="services">
+    
+    <!-- Services Section -->
+    <div class="services container">
         <div class="card">
             <h3 class="accent-solid">Wellness Suites</h3>
             <ul>
@@ -47,42 +390,89 @@
             </ul>
         </div>
     </div>
+    
+    <!-- Contact Section -->
     <div class="contact">
-        <h3>Contact Us</h3>
-        <p>Contact: Robert McElreavey (Master Plumber)<br>Email: <a href="mailto:ridgelinesummitco@gmail.com">ridgelinesummitco@gmail.com</a></p>
-        <p>Contact: Stephen Maher (Wellness Suites)<br>Email: <a href="mailto:ridgelinesummitco@gmail.com">ridgelinesummitco@gmail.com</a></p>
-        <div id="qrcode"></div>
+        <div class="container">
+            <h3>Contact Us</h3>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h4>Robert McElreavey</h4>
+                    <p class="text-light">Master Plumber</p>
+                    <p><a href="mailto:ridgelinesummitco@gmail.com">ridgelinesummitco@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <h4>Stephen Maher</h4>
+                    <p class="text-light">Wellness Suites</p>
+                    <p><a href="mailto:ridgelinesummitco@gmail.com">ridgelinesummitco@gmail.com</a></p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <span class="badge">Licensed &amp; Insured</span>
+            </div>
+        </div>
     </div>
-    <div class="contact">
-        <h3>Inquiry Form</h3>
-        <form id="contact-form">
-            <label for="project-type">Project Type:</label>
-            <select id="project-type">
-                <optgroup label="Wellness Suites">
-                    <option value="custom-saunas">Custom Saunas</option>
-                    <option value="plunge-pools">Plunge Pools</option>
-                </optgroup>
-                <optgroup label="Master Plumbing">
-                    <option value="boiler-systems">Boiler Systems</option>
-                    <option value="hydronic-heating">Hydronic Heating</option>
-                </optgroup>
-            </select>
-            <input type="submit" value="Submit">
-        </form>
-        <p class="hidden" id="success-message">Thank you for your submission!</p>
+    
+    <!-- QR Code Section -->
+    <div class="qr-section">
+        <div class="container">
+            <h4>Scan to Visit Our Website</h4>
+            <div id="qrcode"></div>
+        </div>
     </div>
+    
+    <!-- Contact Form Section -->
+    <div class="form-section">
+        <div class="container">
+            <h3>Request a Quote</h3>
+            <form id="contact-form">
+                <label for="project-type">Project Type:</label>
+                <select id="project-type" name="project-type" required>
+                    <option value="">Select a project type...</option>
+                    <optgroup label="Wellness Suites">
+                        <option value="sauna">Sauna</option>
+                        <option value="plunge-pool">Plunge Pool</option>
+                        <option value="both-sauna-plunge">Both Sauna and Plunge Pool</option>
+                    </optgroup>
+                    <optgroup label="Master Plumbing">
+                        <option value="boiler-system">Boiler System</option>
+                        <option value="hydronic-heating">Hydronic Heating</option>
+                        <option value="water-filtration">Water Filtration</option>
+                        <option value="water-treatment">Water Treatment</option>
+                        <option value="plumbing-service">Plumbing Service</option>
+                        <option value="remodel-plumbing">Remodel - Plumbing</option>
+                    </optgroup>
+                </select>
+                <input type="submit" value="Submit Inquiry">
+            </form>
+            <p class="hidden" id="success-message">Thank you for your inquiry! We'll be in touch soon.</p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Ridgeline Enterprises, LLC. All rights reserved.</p>
+            <p class="text-light">Professional Wellness Suites &amp; Master Plumbing Services in Summit County</p>
+        </div>
+    </footer>
+    
     <script>
         $(document).ready(function() {
             // Generate QR Code
             $('#qrcode').qrcode({
-                width: 128,
-                height: 128,
+                width: 150,
+                height: 150,
                 text: 'https://smpmcmk071.github.io/RidgelineGlow/'
             });
+            
             // Handle form submission
             $('#contact-form').submit(function(event) {
                 event.preventDefault();
                 $('#success-message').removeClass('hidden');
+                setTimeout(function() {
+                    $('#success-message').addClass('hidden');
+                }, 5000);
                 $(this).trigger('reset');
             });
         });
