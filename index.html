@@ -1,9 +1,58 @@
-<h2>Master Plumbing</h2>
-<p><strong>Robert McElreavey</strong> - Master Plumber</p>
-<ul>
-    <li>Residential Plumbing</li>
-    <li>Commercial Plumbing</li>
-    <li>Pipe Installation & Repair</li>
-    <li>Drain Cleaning</li>
-    <li>Water Heater Services</li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>RidgelineGlow</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to RidgelineGlow</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#project-request">Project Request Form</a></li>
+                <li><a href="#contractor-application">Contractor Application</a></li>
+                <li><a href="#qr-code">QR Code Generation</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="project-request">
+        <h2>Project Request Form</h2>
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Project Details:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    
+    <section id="contractor-application">
+        <h2>Contractor Application Form</h2>
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <label for="contractor-name">Name:</label>
+            <input type="text" id="contractor-name" name="contractor-name" required>
+            <label for="contractor-email">Email:</label>
+            <input type="email" id="contractor-email" name="contractor-email" required>
+            <label for="experience">Years of Experience:</label>
+            <input type="text" id="experience" name="experience" required>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    
+    <section id="qr-code">
+        <h2>QR Code Generation</h2>
+        <input type="text" id="qr-input" placeholder="Enter URL" />
+        <button id="generate-qr">Generate QR Code</button>
+        <div id="qr-code-display"></div>
+    </section>
+    
+    <script src="qr.js"></script>
+    <script src="form.js"></script>
+</body>
+</html>
