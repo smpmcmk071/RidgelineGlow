@@ -51,8 +51,8 @@ To receive form submissions via email, complete these steps:
 ### Step 4: Update Your Website
 
 1. Open `index.html`
-2. Find line ~408 and replace `YOUR_PROJECT_FORM_ID` with your actual Project Form ID
-3. Find line ~484 and replace `YOUR_CONTRACTOR_FORM_ID` with your actual Contractor Form ID
+2. Find line ~218 and replace `YOUR_PROJECT_FORM_ID` with your actual Project Form ID
+3. Find line ~302 and replace `YOUR_CONTRACTOR_FORM_ID` with your actual Contractor Form ID
 4. Save the file
 
 ### Step 5: Commit and Push Changes
